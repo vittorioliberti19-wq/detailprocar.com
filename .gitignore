@@ -1,0 +1,6 @@
+.DS_Store
+.playwright-mcp/
+dp-*.jpeg
+dp-*.png
+*.log
+node_modules/
