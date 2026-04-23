@@ -1191,34 +1191,267 @@
         margin-bottom: 60px;
       }
 
-      .procar-placeholder {
-        background: var(--bg-elevated);
-        border: 1px dashed var(--border-strong);
-        border-radius: var(--radius-xl);
-        padding: 80px 40px;
-        text-align: center;
+      /* ============================================================
+         PROCAR GRID — Instagram-style auto-sync card grid
+         Layout mirrors @procarsale77 IG posts (photo + bottom info bar)
+         ============================================================ */
+      .procar-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
       }
 
-      .procar-placeholder .icon {
-        width: 64px;
-        height: 64px;
-        margin: 0 auto 20px;
-        background: var(--primary-soft);
-        border-radius: 50%;
+      @media (max-width: 960px) {
+        .procar-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 560px) {
+        .procar-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .procar-card {
+        background: var(--bg-elevated);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition: var(--transition);
+      }
+
+      .procar-card:hover {
+        border-color: var(--border-primary);
+        transform: translateY(-4px);
+      }
+
+      .procar-photo {
+        position: relative;
+        aspect-ratio: 4/5;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse at 50% 40%,
+            rgba(255, 77, 13, 0.15),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #0a0a0e 0%, #050505 100%);
+      }
+
+      .procar-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .procar-img[src=""],
+      .procar-img:not([src]) {
+        display: none;
+      }
+
+      /* Honeycomb LED placeholder shown when there's no image yet */
+      .procar-photo-placeholder {
+        position: absolute;
+        inset: 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        gap: 4px;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.3rem;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.5);
+        background-image:
+          repeating-linear-gradient(
+            60deg,
+            transparent 0 40px,
+            rgba(255, 255, 255, 0.03) 40px 41px
+          ),
+          repeating-linear-gradient(
+            -60deg,
+            transparent 0 40px,
+            rgba(255, 255, 255, 0.03) 40px 41px
+          );
+      }
+
+      .procar-img[src]:not([src=""]) ~ .procar-photo-placeholder {
+        display: none;
+      }
+
+      .procar-brand {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 0.95rem;
+        line-height: 0.95;
+        color: #fff;
+        text-transform: lowercase;
+        letter-spacing: 0;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        z-index: 2;
+      }
+
+      .procar-brand span {
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 0.6rem;
+        margin-left: 4px;
+        line-height: 1;
+      }
+
+      .procar-sold {
+        position: absolute;
+        top: 50%;
+        left: -10%;
+        width: 120%;
+        transform: translateY(-50%) rotate(-6deg);
+        background: var(--primary);
+        color: #000;
+        font-family: var(--font-display);
+        font-size: 2.2rem;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-align: center;
+        padding: 10px 0;
+        text-transform: uppercase;
+        display: none;
+        box-shadow: 0 10px 40px rgba(255, 77, 13, 0.4);
+        z-index: 3;
+      }
+
+      .procar-card[data-status="sold"] .procar-sold {
+        display: block;
+      }
+
+      .procar-card[data-status="sold"] .procar-info,
+      .procar-card[data-status="sold"] .procar-photo::after {
+        display: none;
+      }
+
+      .procar-info {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: auto auto 1fr;
+        gap: 10px;
+        align-items: stretch;
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(0, 0, 0, 0.85) 40%
+        );
+        padding: 28px 14px 14px;
+        z-index: 2;
+      }
+
+      .procar-info-cell {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 6px 12px;
+        border-radius: 6px;
+        background: rgba(255, 255, 255, 0.88);
+        color: #000;
+        min-width: 54px;
+      }
+
+      .procar-info-label {
+        font-family: var(--font-mono);
+        font-size: 0.58rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #000;
+        line-height: 1;
+        margin-bottom: 3px;
+      }
+
+      .procar-info-val {
+        font-family: var(--font-display);
+        font-weight: 800;
+        font-size: 0.95rem;
+        color: #000;
+        line-height: 1;
+      }
+
+      .procar-info-price {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        font-family: var(--font-display);
+        font-weight: 900;
+        font-size: 1.35rem;
+        color: var(--primary);
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        padding-right: 8px;
+      }
+
+      .procar-info-price .currency {
+        font-size: 0.95rem;
+        margin-right: 2px;
+        opacity: 0.9;
+      }
+
+      .procar-card[data-status="sold"] .procar-info-cell,
+      .procar-card[data-status="sold"] .procar-info-price {
+        visibility: hidden;
+      }
+
+      .procar-meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 18px;
+        background: var(--bg-elevated);
+      }
+
+      .procar-meta h4 {
+        font-family: var(--font-display);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--foreground);
+        letter-spacing: 0.01em;
+        text-transform: none;
+        margin: 0;
+      }
+
+      .procar-trans {
+        font-family: var(--font-display);
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        color: var(--primary);
+        background: var(--primary-soft);
+        border: 1px solid var(--border-primary);
+        padding: 4px 10px;
+        border-radius: 4px;
+      }
+
+      .procar-fallback {
+        text-align: center;
+        color: var(--muted-strong);
+        padding: 40px;
+      }
+
+      .procar-fallback a {
         color: var(--primary);
       }
 
-      .procar-placeholder h3 {
-        margin-bottom: 12px;
-      }
-
-      .procar-placeholder p {
+      .procar-empty {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 60px 24px;
+        border: 1px dashed var(--border-strong);
+        border-radius: var(--radius-xl);
         color: var(--muted-strong);
-        max-width: 540px;
-        margin: 0 auto 28px;
       }
 
       /* ============================================================
@@ -2311,51 +2544,55 @@
           </a>
         </div>
 
-        <div class="procar-placeholder reveal">
-          <div class="icon">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-              <path
-                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01"
-              />
-            </svg>
-          </div>
-          <h3>Feed en vivo próximamente</h3>
-          <p>
-            Estamos preparando la integración en vivo con Instagram
-            @procarsale77 para que veas el inventario actualizado aquí mismo.
-            Mientras tanto, visita el perfil directo.
-          </p>
-          <a
-            href="https://www.instagram.com/procarsale77/"
-            target="_blank"
-            rel="noopener"
-            class="btn-primary"
-          >
-            Ver inventario en Instagram
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M5 12h14M13 5l7 7-7 7" />
-            </svg>
-          </a>
+        <div class="procar-grid reveal" id="procar-grid" aria-live="polite">
+          <!-- Cards rendered from procar.json. Fallback shown below if fetch fails. -->
         </div>
+
+        <noscript>
+          <div class="procar-fallback">
+            Activa JavaScript para ver el inventario, o visita
+            <a
+              href="https://www.instagram.com/procarsale77/"
+              target="_blank"
+              rel="noopener"
+              >@procarsale77</a
+            >.
+          </div>
+        </noscript>
+
+        <template id="procar-card-tmpl">
+          <article class="procar-card">
+            <div class="procar-photo">
+              <img class="procar-img" loading="lazy" alt="" />
+              <div class="procar-photo-placeholder" aria-hidden="true">
+                <span>PRO</span><span class="accent">car</span
+                ><span class="accent">sale</span>
+              </div>
+              <div class="procar-brand" aria-hidden="true">
+                PRO<span class="accent">car<br />sale</span>
+              </div>
+              <div class="procar-sold" aria-hidden="true">VENDIDO</div>
+              <div class="procar-info">
+                <div class="procar-info-cell">
+                  <div class="procar-info-label">AÑO</div>
+                  <div class="procar-info-val procar-year"></div>
+                </div>
+                <div class="procar-info-cell">
+                  <div class="procar-info-label procar-mileage-unit">KM</div>
+                  <div class="procar-info-val procar-mileage"></div>
+                </div>
+                <div class="procar-info-price">
+                  <span class="currency">$</span
+                  ><span class="procar-price"></span>
+                </div>
+              </div>
+            </div>
+            <div class="procar-meta">
+              <h4 class="procar-model"></h4>
+              <span class="procar-trans"></span>
+            </div>
+          </article>
+        </template>
       </div>
     </section>
 
@@ -2691,6 +2928,87 @@
         document.querySelectorAll(".reveal").forEach(function (el) {
           obs.observe(el);
         });
+      })();
+
+      // PROCAR GRID — fetch procar.json and render IG-style cards
+      // Data pipeline: CM fills Google Form → Google Sheet + Drive →
+      // Mac Mini cron rewrites procar.json + pushes images to procar-imgs/
+      (function () {
+        var grid = document.getElementById("procar-grid");
+        var tmpl = document.getElementById("procar-card-tmpl");
+        if (!grid || !tmpl) return;
+
+        function formatNum(n) {
+          if (n == null || n === "") return "";
+          if (typeof n === "string") return n;
+          return n.toLocaleString("es-VE");
+        }
+
+        function renderEmpty(message) {
+          grid.innerHTML =
+            '<div class="procar-empty">' +
+            (message ||
+              "Próximamente — inventario actualizado de @procarsale77") +
+            '. <a href="https://www.instagram.com/procarsale77/" target="_blank" rel="noopener" style="color: var(--primary);">Ver en Instagram →</a></div>';
+        }
+
+        function renderCard(car) {
+          var node = tmpl.content.firstElementChild.cloneNode(true);
+          node.dataset.status = car.status || "available";
+          node.dataset.id = car.id || "";
+
+          var img = node.querySelector(".procar-img");
+          if (car.image) {
+            img.src = car.image;
+            img.alt = car.model || "Vehículo en venta";
+            img.addEventListener("error", function () {
+              img.removeAttribute("src");
+            });
+          } else {
+            img.removeAttribute("src");
+          }
+
+          var year = node.querySelector(".procar-year");
+          var mileage = node.querySelector(".procar-mileage");
+          var unit = node.querySelector(".procar-mileage-unit");
+          var price = node.querySelector(".procar-price");
+          var model = node.querySelector(".procar-model");
+          var trans = node.querySelector(".procar-trans");
+
+          year.textContent = car.year != null ? car.year : "—";
+          mileage.textContent =
+            car.mileage != null ? formatNum(car.mileage) : "—";
+          unit.textContent = car.mileageUnit || "KM";
+          price.textContent = car.price != null ? formatNum(car.price) : "—";
+          model.textContent = car.model || "";
+          trans.textContent = car.transmission || "";
+
+          return node;
+        }
+
+        fetch("procar.json?t=" + Date.now())
+          .then(function (r) {
+            if (!r.ok) throw new Error("HTTP " + r.status);
+            return r.json();
+          })
+          .then(function (data) {
+            var cars = (data && data.cars) || [];
+            if (!cars.length) {
+              renderEmpty();
+              return;
+            }
+            var frag = document.createDocumentFragment();
+            cars.forEach(function (car) {
+              frag.appendChild(renderCard(car));
+            });
+            grid.innerHTML = "";
+            grid.appendChild(frag);
+          })
+          .catch(function () {
+            renderEmpty(
+              "Cargando inventario... Si esto tarda, visita @procarsale77 directamente",
+            );
+          });
       })();
     </script>
   </body>

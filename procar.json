@@ -1,0 +1,70 @@
+{
+  "lastUpdate": "2026-04-22T16:00:00Z",
+  "source": "Google Form @procarsale77 → Mac Mini cron",
+  "cars": [
+    {
+      "id": "lexus-lx-2025",
+      "image": "procar-imgs/lexus-lx-2025.jpg",
+      "model": "Lexus Luxury SUV",
+      "year": 2025,
+      "mileage": 2046,
+      "mileageUnit": "MILLAS",
+      "price": "170.000",
+      "transmission": "AUTOMÁTICO",
+      "status": "available"
+    },
+    {
+      "id": "hyundai-elantra",
+      "image": "procar-imgs/hyundai-elantra.jpg",
+      "model": "Hyundai Elantra",
+      "year": null,
+      "mileage": null,
+      "price": null,
+      "transmission": "AUTOMÁTICO",
+      "status": "sold"
+    },
+    {
+      "id": "toyota-fortuner",
+      "image": "procar-imgs/toyota-fortuner.jpg",
+      "model": "Toyota Fortuner",
+      "year": null,
+      "mileage": null,
+      "price": null,
+      "transmission": "AUTOMÁTICO",
+      "status": "sold"
+    },
+    {
+      "id": "toyota-corolla-gli-2012",
+      "image": "procar-imgs/corolla-gli-2012.jpg",
+      "model": "Corolla Gli",
+      "year": 2012,
+      "mileage": 190000,
+      "mileageUnit": "KM",
+      "price": "18.900",
+      "transmission": "AUTOMÁTICO",
+      "status": "available"
+    },
+    {
+      "id": "nissan-juke-2015",
+      "image": "procar-imgs/nissan-juke-2015.jpg",
+      "model": "Nissan Juke",
+      "year": 2015,
+      "mileage": 43890,
+      "mileageUnit": "KM",
+      "price": "12.500",
+      "transmission": "AUTOMÁTICO",
+      "status": "available"
+    },
+    {
+      "id": "toyota-sequoia-2025",
+      "image": "procar-imgs/toyota-sequoia-2025.jpg",
+      "model": "Toyota Sequoia",
+      "year": 2025,
+      "mileage": 2975,
+      "mileageUnit": "KM",
+      "price": "170.000",
+      "transmission": "AUTOMÁTICO",
+      "status": "available"
+    }
+  ]
+}
