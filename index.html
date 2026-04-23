@@ -1492,6 +1492,34 @@
         color: var(--muted-strong);
       }
 
+      /* Elfsight widget container — IG feed from @procarsale77 */
+      .elfsight-wrap {
+        min-height: 400px;
+        position: relative;
+      }
+
+      .elfsight-wrap:empty::before,
+      .elfsight-wrap:not(:has([class^="elfsight-app-"]))::before {
+        content: "Cargando inventario de @procarsale77...";
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--muted);
+        border: 1px dashed var(--border);
+        border-radius: var(--radius-xl);
+      }
+
+      /* Match Elfsight widget to dark theme when possible */
+      .elfsight-wrap [class^="elfsight-app-"] {
+        background: transparent;
+      }
+
       /* ============================================================
          CONTACTO
          ============================================================ */
@@ -2548,8 +2576,13 @@
           </a>
         </div>
 
-        <div class="procar-grid reveal" id="procar-grid" aria-live="polite">
-          <!-- Cards rendered from procar.json. Fallback shown below if fetch fails. -->
+        <!-- Elfsight Instagram Feed widget
+             Drop the two lines Elfsight gives you between BEGIN and END below.
+             While empty, the fallback link to @procarsale77 is shown. -->
+        <div class="elfsight-wrap reveal" id="procar-feed">
+          <!-- BEGIN ELFSIGHT WIDGET -->
+          <!-- Paste the <div class="elfsight-app-XXXX"></div> here -->
+          <!-- END ELFSIGHT WIDGET -->
         </div>
 
         <noscript>
@@ -2563,40 +2596,6 @@
             >.
           </div>
         </noscript>
-
-        <template id="procar-card-tmpl">
-          <article class="procar-card">
-            <div class="procar-photo">
-              <img class="procar-img" loading="lazy" alt="" />
-              <div class="procar-photo-placeholder" aria-hidden="true">
-                <span>PRO</span><span class="accent">car</span
-                ><span class="accent">sale</span>
-              </div>
-              <div class="procar-brand" aria-hidden="true">
-                PRO<span class="accent">car<br />sale</span>
-              </div>
-              <div class="procar-sold" aria-hidden="true">VENDIDO</div>
-              <div class="procar-info">
-                <div class="procar-info-cell">
-                  <div class="procar-info-label">AÑO</div>
-                  <div class="procar-info-val procar-year"></div>
-                </div>
-                <div class="procar-info-cell">
-                  <div class="procar-info-label procar-mileage-unit">KM</div>
-                  <div class="procar-info-val procar-mileage"></div>
-                </div>
-                <div class="procar-info-price">
-                  <span class="currency">$</span
-                  ><span class="procar-price"></span>
-                </div>
-              </div>
-            </div>
-            <div class="procar-meta">
-              <h4 class="procar-model"></h4>
-              <span class="procar-trans"></span>
-            </div>
-          </article>
-        </template>
       </div>
     </section>
 
@@ -2934,86 +2933,9 @@
         });
       })();
 
-      // PROCAR GRID — fetch procar.json and render IG-style cards
-      // Data pipeline: CM fills Google Form → Google Sheet + Drive →
-      // Mac Mini cron rewrites procar.json + pushes images to procar-imgs/
-      (function () {
-        var grid = document.getElementById("procar-grid");
-        var tmpl = document.getElementById("procar-card-tmpl");
-        if (!grid || !tmpl) return;
-
-        function formatNum(n) {
-          if (n == null || n === "") return "";
-          if (typeof n === "string") return n;
-          return n.toLocaleString("es-VE");
-        }
-
-        function renderEmpty(message) {
-          grid.innerHTML =
-            '<div class="procar-empty">' +
-            (message ||
-              "Próximamente — inventario actualizado de @procarsale77") +
-            '. <a href="https://www.instagram.com/procarsale77/" target="_blank" rel="noopener" style="color: var(--primary);">Ver en Instagram →</a></div>';
-        }
-
-        function renderCard(car) {
-          var node = tmpl.content.firstElementChild.cloneNode(true);
-          node.dataset.status = car.status || "available";
-          node.dataset.id = car.id || "";
-
-          var img = node.querySelector(".procar-img");
-          if (car.image) {
-            img.src = car.image;
-            img.alt = car.model || "Vehículo en venta";
-            img.addEventListener("error", function () {
-              img.removeAttribute("src");
-            });
-          } else {
-            img.removeAttribute("src");
-          }
-
-          var year = node.querySelector(".procar-year");
-          var mileage = node.querySelector(".procar-mileage");
-          var unit = node.querySelector(".procar-mileage-unit");
-          var price = node.querySelector(".procar-price");
-          var model = node.querySelector(".procar-model");
-          var trans = node.querySelector(".procar-trans");
-
-          year.textContent = car.year != null ? car.year : "—";
-          mileage.textContent =
-            car.mileage != null ? formatNum(car.mileage) : "—";
-          unit.textContent = car.mileageUnit || "KM";
-          price.textContent = car.price != null ? formatNum(car.price) : "—";
-          model.textContent = car.model || "";
-          trans.textContent = car.transmission || "";
-
-          return node;
-        }
-
-        fetch("procar.json?t=" + Date.now())
-          .then(function (r) {
-            if (!r.ok) throw new Error("HTTP " + r.status);
-            return r.json();
-          })
-          .then(function (data) {
-            var cars = (data && data.cars) || [];
-            if (!cars.length) {
-              renderEmpty();
-              return;
-            }
-            var frag = document.createDocumentFragment();
-            cars.forEach(function (car) {
-              frag.appendChild(renderCard(car));
-            });
-            grid.innerHTML = "";
-            grid.appendChild(frag);
-          })
-          .catch(function () {
-            renderEmpty(
-              "Cargando inventario... Si esto tarda, visita @procarsale77 directamente",
-            );
-          });
-      })();
+      // ProCar Sale feed is served by the Elfsight Instagram widget.
+      // Embed <div class="elfsight-app-XXXX"></div> + <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+      // inside #procar-feed in the HTML above — nothing else needed here.
     </script>
   </body>
 </html>
