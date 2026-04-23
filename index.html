@@ -997,35 +997,80 @@
 
       .vehicle {
         aspect-ratio: 3/4;
-        background: var(--primary);
         border-radius: var(--radius);
-        padding: 14px 10px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        color: #000;
+        position: relative;
+        overflow: hidden;
+        background:
+          radial-gradient(
+            ellipse at 0% 50%,
+            rgba(255, 77, 13, 0.35),
+            transparent 60%
+          ),
+          linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+        border: 1px solid var(--border);
         transition: var(--transition);
+        margin: 0;
+      }
+
+      .vehicle img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+      }
+
+      .vehicle::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          transparent 40%,
+          rgba(0, 0, 0, 0.6) 75%,
+          rgba(0, 0, 0, 0.95) 100%
+        );
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .vehicle::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: var(--radius);
+        box-shadow: inset 0 0 60px rgba(255, 77, 13, 0.15);
+        z-index: 2;
+        pointer-events: none;
       }
 
       .vehicle:hover {
         transform: translateY(-4px) scale(1.03);
-        box-shadow: 0 12px 40px var(--primary-glow);
+        box-shadow:
+          0 12px 40px var(--primary-glow),
+          0 0 0 1px var(--border-primary) inset;
       }
 
-      .vehicle-icon {
-        width: 70%;
-        max-width: 80px;
-        margin-top: 14px;
+      .vehicle:hover img {
+        transform: scale(1.05);
+        transition: transform 0.8s var(--easing);
       }
 
       .vehicle-label {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 14px;
+        z-index: 3;
         font-family: var(--font-display);
-        font-size: 0.85rem;
-        font-weight: 700;
-        letter-spacing: 0.04em;
+        font-size: 0.92rem;
+        font-weight: 800;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
+        color: #fff;
+        text-align: center;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
       }
 
       .steps {
@@ -2274,94 +2319,60 @@
               tipo:
             </p>
             <div class="vehicle-types">
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <circle cx="16" cy="48" r="8" />
-                  <circle cx="48" cy="48" r="8" />
-                  <path d="M16 48h16l8-20h8M24 28h16" />
-                </svg>
-                <span class="vehicle-label">Motos</span>
-              </div>
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="12" y="14" width="40" height="36" rx="6" />
-                  <path d="M20 26h24M20 38h24M12 32h40" />
-                </svg>
-                <span class="vehicle-label">Carros</span>
-              </div>
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M8 16h48v32H8z M8 32h48 M20 16v32 M44 16v32" />
-                </svg>
-                <span class="vehicle-label">Camionetas</span>
-              </div>
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M8 12h48v40H8z M18 12v40 M46 12v40 M8 32h48" />
-                </svg>
-                <span class="vehicle-label">Vans</span>
-              </div>
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <path d="M8 14h32v20H8z M40 22h16v12H40z M8 34h48v18H8z" />
-                </svg>
-                <span class="vehicle-label">Pick-up</span>
-              </div>
-              <div class="vehicle">
-                <svg
-                  class="vehicle-icon"
-                  viewBox="0 0 64 64"
-                  fill="none"
-                  stroke="#000"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                >
-                  <rect x="6" y="10" width="52" height="44" rx="4" />
-                  <path d="M6 24h52M6 40h52M20 10v44M44 10v44" />
-                </svg>
-                <span class="vehicle-label">Camionetas XL</span>
-              </div>
+              <figure class="vehicle" data-veh="motos">
+                <img
+                  src="vehicle-imgs/motos.jpg"
+                  alt="Motos"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Motos</figcaption>
+              </figure>
+              <figure class="vehicle" data-veh="carros">
+                <img
+                  src="vehicle-imgs/carros.jpg"
+                  alt="Carros"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Carros</figcaption>
+              </figure>
+              <figure class="vehicle" data-veh="camionetas">
+                <img
+                  src="vehicle-imgs/camionetas.jpg"
+                  alt="Camionetas"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Camionetas</figcaption>
+              </figure>
+              <figure class="vehicle" data-veh="vans">
+                <img
+                  src="vehicle-imgs/vans.jpg"
+                  alt="Vans"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Vans</figcaption>
+              </figure>
+              <figure class="vehicle" data-veh="pickup">
+                <img
+                  src="vehicle-imgs/pickup.jpg"
+                  alt="Pick-up"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Pick-up</figcaption>
+              </figure>
+              <figure class="vehicle" data-veh="camionetas-xl">
+                <img
+                  src="vehicle-imgs/camionetas-xl.jpg"
+                  alt="Camionetas XL"
+                  loading="lazy"
+                  onerror="this.style.display = 'none'"
+                />
+                <figcaption class="vehicle-label">Camionetas XL</figcaption>
+              </figure>
             </div>
           </article>
 
@@ -2627,10 +2638,10 @@
               </div>
               <div>
                 <div class="contact-label">Dirección</div>
-                <div class="contact-value">Av. 5 de Julio con Av. 3F</div>
-                <div class="contact-sub">
-                  Sótano CC Terraza 77 · Maracaibo, Zulia
+                <div class="contact-value">
+                  Av. 5 de Julio con Av. 3F, Sótano CC Terraza 77
                 </div>
+                <div class="contact-sub">Maracaibo, Zulia</div>
               </div>
             </div>
 
