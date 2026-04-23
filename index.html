@@ -952,6 +952,9 @@
       .corp-card.narrow {
         grid-column: span 5;
       }
+      .corp-card.half {
+        grid-column: span 6;
+      }
       .corp-card.full {
         grid-column: span 12;
       }
@@ -962,6 +965,7 @@
       @media (max-width: 860px) {
         .corp-card.wide,
         .corp-card.narrow,
+        .corp-card.half,
         .corp-card.full,
         .corp-card.third {
           grid-column: span 12;
@@ -1685,7 +1689,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 16px;
+        gap: 24px;
         flex-wrap: wrap;
       }
 
@@ -1694,6 +1698,34 @@
         font-size: 0.78rem;
         color: var(--muted);
         letter-spacing: 0.05em;
+      }
+
+      .developed-by {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        color: var(--muted);
+        letter-spacing: 0.05em;
+      }
+
+      .developed-by a {
+        display: inline-flex;
+        align-items: center;
+        line-height: 0;
+      }
+
+      .developed-by img {
+        height: 16px;
+        width: auto;
+        filter: invert(1);
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+      }
+
+      .developed-by a:hover img {
+        opacity: 1;
       }
 
       .footer-socials {
@@ -2293,7 +2325,7 @@
 
         <div class="corp-grid">
           <!-- CARD: CONDICIONES GENERALES -->
-          <article class="corp-card wide reveal">
+          <article class="corp-card full reveal">
             <div class="num">01</div>
             <h3>Condiciones generales</h3>
             <p style="margin-bottom: 20px">
@@ -2314,20 +2346,6 @@
               <li>Sin duración mínima de contrato</li>
               <li>Aplicable únicamente a empresas</li>
               <li>Uso exclusivo para vehículos registrados en la flota</li>
-            </ul>
-          </article>
-
-          <!-- CARD: CONDICIONES COMERCIALES CLAVE -->
-          <article class="corp-card narrow reveal">
-            <div class="num">07</div>
-            <h3>Condiciones clave</h3>
-            <ul>
-              <li>No hay contrato con duración mínima</li>
-              <li>No hay obligación de consumo mensual</li>
-              <li>El cliente paga únicamente los lavados realizados</li>
-              <li>
-                La lista de vehículos se puede actualizar cuando sea necesario
-              </li>
             </ul>
           </article>
 
@@ -2398,7 +2416,7 @@
           </article>
 
           <!-- CARD: REGISTRO DE FLOTA -->
-          <article class="corp-card wide reveal">
+          <article class="corp-card full reveal">
             <div class="num">03</div>
             <h3>Registro de flota vehicular</h3>
             <p>
@@ -2418,25 +2436,6 @@
                 regular
               </li>
               <li>La lista se puede actualizar cuando sea necesario</li>
-            </ul>
-          </article>
-
-          <!-- CARD: CORTES Y FACTURACIÓN -->
-          <article class="corp-card narrow reveal">
-            <div class="num">05</div>
-            <h3>Cortes y facturación</h3>
-            <ul>
-              <li>
-                Corte administrativo:
-                <strong style="color: var(--foreground)">15 de cada mes</strong>
-              </li>
-              <li>
-                Corte administrativo:
-                <strong style="color: var(--foreground)"
-                  >último día de cada mes</strong
-                >
-              </li>
-              <li>Se emite una sola factura consolidada por período</li>
             </ul>
           </article>
 
@@ -2484,6 +2483,39 @@
                 </ul>
               </div>
             </div>
+          </article>
+
+          <!-- CARD: CORTES Y FACTURACIÓN -->
+          <article class="corp-card half reveal">
+            <div class="num">05</div>
+            <h3>Cortes y facturación</h3>
+            <ul>
+              <li>
+                Corte administrativo:
+                <strong style="color: var(--foreground)">15 de cada mes</strong>
+              </li>
+              <li>
+                Corte administrativo:
+                <strong style="color: var(--foreground)"
+                  >último día de cada mes</strong
+                >
+              </li>
+              <li>Se emite una sola factura consolidada por período</li>
+            </ul>
+          </article>
+
+          <!-- CARD: CONDICIONES COMERCIALES CLAVE -->
+          <article class="corp-card half reveal">
+            <div class="num">07</div>
+            <h3>Condiciones clave</h3>
+            <ul>
+              <li>No hay contrato con duración mínima</li>
+              <li>No hay obligación de consumo mensual</li>
+              <li>El cliente paga únicamente los lavados realizados</li>
+              <li>
+                La lista de vehículos se puede actualizar cuando sea necesario
+              </li>
+            </ul>
           </article>
 
           <!-- CTA FINAL -->
@@ -2719,6 +2751,18 @@
                   >
                 </div>
                 <div class="contact-sub">Antes y después reales</div>
+                <div
+                  class="contact-value"
+                  style="margin-top: 10px; font-size: 1rem"
+                >
+                  <a
+                    href="https://www.instagram.com/procarsale77/"
+                    target="_blank"
+                    rel="noopener"
+                    >@procarsale77</a
+                  >
+                </div>
+                <div class="contact-sub">Inventario ProCar Sale</div>
               </div>
             </div>
           </div>
@@ -2785,7 +2829,15 @@
                   href="https://www.instagram.com/detailprocarwashve/"
                   target="_blank"
                   rel="noopener"
-                  >Instagram</a
+                  >@detailprocarwashve</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/procarsale77/"
+                  target="_blank"
+                  rel="noopener"
+                  >@procarsale77</a
                 >
               </li>
               <li>5 de Julio con Av 3F</li>
@@ -2794,36 +2846,22 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>© 2026 Detail Pro Car Wash · Maracaibo, Venezuela</p>
-          <span
-            class="developed-by"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              font-family: var(--font-mono);
-              font-size: 0.78rem;
-              color: var(--muted);
-              letter-spacing: 0.05em;
-            "
-            >Web developed by
+          <p>© 2025 Detail Pro Car Wash · Maracaibo, Venezuela</p>
+          <span class="developed-by">
+            Web developed by
             <a
               href="https://1bite.studio/"
               target="_blank"
               rel="noopener"
               aria-label="1bite Studio"
-              ><img
+            >
+              <img
                 src="1bite-logo.webp"
                 alt="1bite Studio"
                 onerror="this.src='1bite-logo.png'; this.onerror=null;"
-                style="
-                  height: 16px;
-                  width: auto;
-                  filter: invert(1);
-                  vertical-align: middle;
-                  display: block;
-                " /></a
-          ></span>
+              />
+            </a>
+          </span>
           <div class="footer-socials">
             <a
               href="https://www.instagram.com/detailprocarwashve/"
