@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /.DS_Store
 
-Sitemap: https://detailprocarwash.com/sitemap.xml
+Sitemap: https://detailprocar.com/sitemap.xml
