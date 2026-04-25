@@ -2639,10 +2639,12 @@
         align-items: center;
         justify-content: center;
         text-align: center;
+        padding: 0 32px;
         font-family: var(--font-mono);
         font-size: 0.85rem;
-        letter-spacing: 0.15em;
-        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        line-height: 1.7;
+        text-transform: none;
         color: var(--muted);
         background: repeating-linear-gradient(
           45deg,
@@ -2651,6 +2653,16 @@
           transparent 10px,
           transparent 20px
         );
+      }
+
+      .ba-placeholder code {
+        background: rgba(255, 77, 13, 0.1);
+        border: 1px solid var(--border-primary);
+        color: var(--primary);
+        padding: 2px 8px;
+        border-radius: 4px;
+        font-size: 0.85rem;
+        white-space: nowrap;
       }
 
       /* ============================================================
@@ -3037,8 +3049,8 @@
             onerror="this.style.display = 'none'"
           />
           <div class="ba-placeholder">
-            Subí <code>ba-before.jpg</code> y <code>ba-after.jpg</code> al repo
-            (1600×900 recomendado) para activar el comparador
+            Subí&nbsp;<code>ba-before.jpg</code>&nbsp;y&nbsp;<code>ba-after.jpg</code>&nbsp;al
+            repo (1600×900 recomendado) para activar el comparador
           </div>
           <div class="ba-divider"></div>
           <button
