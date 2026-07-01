@@ -1314,7 +1314,10 @@
         padding: 32px;
         position: relative;
         overflow: hidden;
-        transition: transform 0.4s var(--easing), border-color 0.4s var(--easing), box-shadow 0.4s var(--easing);
+        transition:
+          transform 0.4s var(--easing),
+          border-color 0.4s var(--easing),
+          box-shadow 0.4s var(--easing);
       }
 
       .corp-card::before {
@@ -1324,7 +1327,9 @@
         border-radius: inherit;
         padding: 1px;
         background: linear-gradient(135deg, var(--primary), transparent 60%);
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
         -webkit-mask-composite: xor;
         mask-composite: exclude;
         opacity: 0;
@@ -3154,9 +3159,36 @@
           role="img"
           aria-label="Comparación antes y después de un servicio Detail Pro"
         >
-          <div class="ba-placeholder" style="padding:48px 24px;text-align:center;color:var(--muted);font-size:1rem;">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="1.5" style="margin-bottom:16px;opacity:.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <div style="font-weight:600;color:var(--foreground);margin-bottom:6px;">Galería Before &amp; After</div>
+          <div
+            class="ba-placeholder"
+            style="
+              padding: 48px 24px;
+              text-align: center;
+              color: var(--muted);
+              font-size: 1rem;
+            "
+          >
+            <svg
+              width="48"
+              height="48"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="var(--primary)"
+              stroke-width="1.5"
+              style="margin-bottom: 16px; opacity: 0.6"
+            >
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <path d="M3 9h18M9 21V9" />
+            </svg>
+            <div
+              style="
+                font-weight: 600;
+                color: var(--foreground);
+                margin-bottom: 6px;
+              "
+            >
+              Galería Before &amp; After
+            </div>
             Próximamente: comparativas de nuestros trabajos de detallado.
           </div>
           <img
@@ -3205,19 +3237,66 @@
         </div>
 
         <div class="tabs" role="tablist">
-          <button class="tab active" data-tab="lavado" role="tab" aria-selected="true" aria-controls="tab-lavado" id="tab-btn-lavado">
+          <button
+            class="tab active"
+            data-tab="lavado"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tab-lavado"
+            id="tab-btn-lavado"
+          >
             Lavado
           </button>
-          <button class="tab" data-tab="detallado" role="tab" aria-selected="false" aria-controls="tab-detallado" id="tab-btn-detallado">Detallado</button>
-          <button class="tab" data-tab="interior" role="tab" aria-selected="false" aria-controls="tab-interior" id="tab-btn-interior">Interior</button>
-          <button class="tab" data-tab="coating" role="tab" aria-selected="false" aria-controls="tab-coating" id="tab-btn-coating">
+          <button
+            class="tab"
+            data-tab="detallado"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-detallado"
+            id="tab-btn-detallado"
+          >
+            Detallado
+          </button>
+          <button
+            class="tab"
+            data-tab="interior"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-interior"
+            id="tab-btn-interior"
+          >
+            Interior
+          </button>
+          <button
+            class="tab"
+            data-tab="coating"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-coating"
+            id="tab-btn-coating"
+          >
             Ceramic Coating
           </button>
-          <button class="tab" data-tab="otros" role="tab" aria-selected="false" aria-controls="tab-otros" id="tab-btn-otros">Otros</button>
+          <button
+            class="tab"
+            data-tab="otros"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-otros"
+            id="tab-btn-otros"
+          >
+            Otros
+          </button>
         </div>
 
         <!-- LAVADO -->
-        <div class="services-grid active" data-content="lavado" role="tabpanel" id="tab-lavado" aria-labelledby="tab-btn-lavado">
+        <div
+          class="services-grid active"
+          data-content="lavado"
+          role="tabpanel"
+          id="tab-lavado"
+          aria-labelledby="tab-btn-lavado"
+        >
           <div class="service-row">
             <span class="service-name">Lavado Exterior · Pequeño</span
             ><span class="service-price"><span class="currency">€</span>5</span>
@@ -3307,7 +3386,13 @@
         </div>
 
         <!-- DETALLADO -->
-        <div class="services-grid" data-content="detallado" role="tabpanel" id="tab-detallado" aria-labelledby="tab-btn-detallado">
+        <div
+          class="services-grid"
+          data-content="detallado"
+          role="tabpanel"
+          id="tab-detallado"
+          aria-labelledby="tab-btn-detallado"
+        >
           <div class="service-row">
             <span class="service-name">Hidratado de Plásticos Interiores</span
             ><span class="service-price"
@@ -3359,7 +3444,13 @@
         </div>
 
         <!-- INTERIOR -->
-        <div class="services-grid" data-content="interior" role="tabpanel" id="tab-interior" aria-labelledby="tab-btn-interior">
+        <div
+          class="services-grid"
+          data-content="interior"
+          role="tabpanel"
+          id="tab-interior"
+          aria-labelledby="tab-btn-interior"
+        >
           <div class="service-row">
             <span class="service-name">Limpieza Interior · Pequeño</span
             ><span class="service-price"><span class="currency">€</span>5</span>
@@ -3401,7 +3492,13 @@
         </div>
 
         <!-- COATING -->
-        <div class="services-grid" data-content="coating" role="tabpanel" id="tab-coating" aria-labelledby="tab-btn-coating">
+        <div
+          class="services-grid"
+          data-content="coating"
+          role="tabpanel"
+          id="tab-coating"
+          aria-labelledby="tab-btn-coating"
+        >
           <div class="service-row">
             <span class="service-name">Cerámico Carro · 1 año</span
             ><span class="service-price"
@@ -3429,7 +3526,13 @@
         </div>
 
         <!-- OTROS -->
-        <div class="services-grid" data-content="otros" role="tabpanel" id="tab-otros" aria-labelledby="tab-btn-otros">
+        <div
+          class="services-grid"
+          data-content="otros"
+          role="tabpanel"
+          id="tab-otros"
+          aria-labelledby="tab-btn-otros"
+        >
           <div class="service-row">
             <span class="service-name">Papel Ahumado / Polarizado (mt)</span
             ><span class="service-price"
@@ -4079,56 +4182,326 @@
     <!-- ============================================================
          TESTIMONIOS
          ============================================================ -->
-    <section class="testimonials" id="testimonios" style="background:var(--bg-base);border-top:1px solid var(--border);">
-      <div class="container" style="padding:120px 24px;">
-        <div class="section-head reveal" style="margin-bottom:60px;">
-          <div class="eyebrow" style="margin-bottom:16px;">RESEÑAS</div>
+    <section
+      class="testimonials"
+      id="testimonios"
+      style="background: var(--bg-base); border-top: 1px solid var(--border)"
+    >
+      <div class="container" style="padding: 120px 24px">
+        <div class="section-head reveal" style="margin-bottom: 60px">
+          <div class="eyebrow" style="margin-bottom: 16px">RESEÑAS</div>
           <h2>Lo que dicen nuestros <span class="accent">clientes</span></h2>
         </div>
-        <div class="testimonial-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;">
-          <article class="testimonial-card reveal" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;">
+        <div
+          class="testimonial-grid"
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          "
+        >
+          <article
+            class="testimonial-card reveal"
+            style="
+              background: var(--bg-elevated);
+              border: 1px solid var(--border);
+              border-radius: var(--radius-lg);
+              padding: 32px;
+            "
+          >
             <div class="testi-stars" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
             </div>
-            <p style="color:var(--muted-strong);font-style:italic;line-height:1.6;margin-bottom:20px;">"Excelente servicio. Dejaron mi carro como nuevo, el ceramic coating quedó perfecto."</p>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--foreground);">Carlos M.</div>
-            <div style="font-size:.85rem;color:var(--muted);margin-top:4px;">Ceramic Coating</div>
+            <p
+              style="
+                color: var(--muted-strong);
+                font-style: italic;
+                line-height: 1.6;
+                margin-bottom: 20px;
+              "
+            >
+              "Excelente servicio. Dejaron mi carro como nuevo, el ceramic
+              coating quedó perfecto."
+            </p>
+            <div
+              style="
+                font-family: var(--font-display);
+                font-weight: 700;
+                color: var(--foreground);
+              "
+            >
+              Carlos M.
+            </div>
+            <div
+              style="font-size: 0.85rem; color: var(--muted); margin-top: 4px"
+            >
+              Ceramic Coating
+            </div>
           </article>
-          <article class="testimonial-card reveal" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;">
+          <article
+            class="testimonial-card reveal"
+            style="
+              background: var(--bg-elevated);
+              border: 1px solid var(--border);
+              border-radius: var(--radius-lg);
+              padding: 32px;
+            "
+          >
             <div class="testi-stars" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
             </div>
-            <p style="color:var(--muted-strong);font-style:italic;line-height:1.6;margin-bottom:20px;">"Llevo toda la flota de mi empresa con ellos. Puntualidad y calidad impecables."</p>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--foreground);">Ana R.</div>
-            <div style="font-size:.85rem;color:var(--muted);margin-top:4px;">Plan Corporativo</div>
+            <p
+              style="
+                color: var(--muted-strong);
+                font-style: italic;
+                line-height: 1.6;
+                margin-bottom: 20px;
+              "
+            >
+              "Llevo toda la flota de mi empresa con ellos. Puntualidad y
+              calidad impecables."
+            </p>
+            <div
+              style="
+                font-family: var(--font-display);
+                font-weight: 700;
+                color: var(--foreground);
+              "
+            >
+              Ana R.
+            </div>
+            <div
+              style="font-size: 0.85rem; color: var(--muted); margin-top: 4px"
+            >
+              Plan Corporativo
+            </div>
           </article>
-          <article class="testimonial-card reveal" style="background:var(--bg-elevated);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;">
+          <article
+            class="testimonial-card reveal"
+            style="
+              background: var(--bg-elevated);
+              border: 1px solid var(--border);
+              border-radius: var(--radius-lg);
+              padding: 32px;
+            "
+          >
             <div class="testi-stars" aria-hidden="true">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--primary)" stroke="var(--primary)" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="var(--primary)"
+                stroke="var(--primary)"
+                stroke-width="1.5"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
             </div>
-            <p style="color:var(--muted-strong);font-style:italic;line-height:1.6;margin-bottom:20px;">"El mejor autolavado de Maracaibo sin duda. El detallado interior es otro nivel."</p>
-            <div style="font-family:var(--font-display);font-weight:700;color:var(--foreground);">Luis P.</div>
-            <div style="font-size:.85rem;color:var(--muted);margin-top:4px;">Detallado Completo</div>
+            <p
+              style="
+                color: var(--muted-strong);
+                font-style: italic;
+                line-height: 1.6;
+                margin-bottom: 20px;
+              "
+            >
+              "El mejor autolavado de Maracaibo sin duda. El detallado interior
+              es otro nivel."
+            </p>
+            <div
+              style="
+                font-family: var(--font-display);
+                font-weight: 700;
+                color: var(--foreground);
+              "
+            >
+              Luis P.
+            </div>
+            <div
+              style="font-size: 0.85rem; color: var(--muted); margin-top: 4px"
+            >
+              Detallado Completo
+            </div>
           </article>
         </div>
       </div>
     </section>
     <style>
       @media (max-width: 860px) {
-        .testimonial-grid { grid-template-columns: 1fr !important; }
-        .testimonials .container { padding: 80px 24px !important; }
+        .testimonial-grid {
+          grid-template-columns: 1fr !important;
+        }
+        .testimonials .container {
+          padding: 80px 24px !important;
+        }
       }
     </style>
 
@@ -4193,6 +4566,33 @@
                   <a href="tel:+584146733148">+58 414-6733148</a>
                 </div>
                 <div class="contact-sub">WhatsApp disponible</div>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-icon">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                </svg>
+              </div>
+              <div>
+                <div class="contact-label">Email</div>
+                <div class="contact-value">
+                  <a href="mailto:info@detailprocar.com"
+                    >info@detailprocar.com</a
+                  >
+                </div>
+                <div class="contact-sub">Consultas y presupuestos</div>
               </div>
             </div>
 
@@ -4769,11 +5169,16 @@
       // SERVICE ICONS — inject per tab
       (function () {
         var icons = {
-          lavado: '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/></svg>',
-          detallado: '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>',
-          interior: '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>',
-          coating: '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
-          otros: '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>'
+          lavado:
+            '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0L12 2.69z"/></svg>',
+          detallado:
+            '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z"/></svg>',
+          interior:
+            '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18"/></svg>',
+          coating:
+            '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>',
+          otros:
+            '<svg class="service-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v8m-4-4h8"/></svg>',
         };
         document.querySelectorAll(".services-grid").forEach(function (grid) {
           var key = grid.getAttribute("data-content");
@@ -4787,11 +5192,19 @@
 
       // ProCar Sale feed is served by the Elfsight Instagram widget.
     </script>
-  
+
     <!-- Mobile sticky bottom CTA -->
     <div class="mobile-cta" id="mobileCta" aria-hidden="true">
-      <a href="https://wa.me/584146733148?text=Hola%2C%20quiero%20agendar%20un%20servicio" target="_blank" rel="noopener" class="btn-primary mobile-cta-main">Agendar cita</a>
-      <a href="#servicios" class="btn-secondary mobile-cta-secondary">Ver servicios</a>
+      <a
+        href="https://wa.me/584146733148?text=Hola%2C%20quiero%20agendar%20un%20servicio"
+        target="_blank"
+        rel="noopener"
+        class="btn-primary mobile-cta-main"
+        >Agendar cita</a
+      >
+      <a href="#servicios" class="btn-secondary mobile-cta-secondary"
+        >Ver servicios</a
+      >
     </div>
 
     <script>
