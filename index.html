@@ -12,7 +12,7 @@
     </title>
     <meta
       name="description"
-      content="Autolavado profesional en Maracaibo · Ceramic Coating con garantía hasta 36 meses, detailing automotriz, pulido, descontaminado, polarizado y plan corporativo para flotas. Av. 5 de Julio con Av. 3F, Sótano CC Terraza 77. WhatsApp +58 414-6733148."
+      content="Autolavado y detailing en Maracaibo. Ceramic Coating con garantía hasta 36 meses, pulido, polarizado y plan corporativo para flotas. CC Terraza 77."
     />
     <meta
       name="keywords"
@@ -3091,12 +3091,12 @@
           <div class="reel-card reveal">
             <div class="reel-video">
               <video
-                src="reel-ceramic.mp4"
-                autoplay
+                data-src="reel-ceramic.mp4"
                 loop
                 muted
                 playsinline
-                preload="metadata"
+                preload="none"
+                poster="posters/reel-ceramic.webp"
               ></video>
             </div>
             <div class="reel-body">
@@ -3112,12 +3112,12 @@
           <div class="reel-card reveal">
             <div class="reel-video">
               <video
-                src="reel-proceso.mp4"
-                autoplay
+                data-src="reel-proceso.mp4"
                 loop
                 muted
                 playsinline
-                preload="metadata"
+                preload="none"
+                poster="posters/reel-proceso.webp"
               ></video>
             </div>
             <div class="reel-body">
@@ -3133,12 +3133,12 @@
           <div class="reel-card reveal">
             <div class="reel-video">
               <video
-                src="reel-9.mp4"
-                autoplay
+                data-src="reel-9.mp4"
                 loop
                 muted
                 playsinline
-                preload="metadata"
+                preload="none"
+                poster="posters/reel-9.webp"
               ></video>
             </div>
             <div class="reel-body">
@@ -5036,15 +5036,26 @@
         });
       })();
 
-      // REELS — pause off-screen videos to save battery / data
+      // REELS — el src vive en data-src: sin autoplay en el markup el
+      // navegador no descarga el mp4 hasta que el reel entra en pantalla.
+      // Pausar solo (como antes) no evitaba la descarga: autoplay hace que
+      // Chrome baje el archivo entero ignorando preload="metadata".
       (function () {
         var vids = document.querySelectorAll(".reel-video video");
-        if (!vids.length || !("IntersectionObserver" in window)) return;
+        if (!vids.length) return;
+        if (!("IntersectionObserver" in window)) {
+          // Sin soporte: cargar todo para no dejar los reels en blanco.
+          vids.forEach(function (v) {
+            if (v.dataset.src) v.src = v.dataset.src;
+          });
+          return;
+        }
         var io = new IntersectionObserver(
           function (entries) {
             entries.forEach(function (e) {
               var v = e.target;
               if (e.isIntersecting) {
+                if (!v.src && v.dataset.src) v.src = v.dataset.src;
                 var p = v.play();
                 if (p && p.catch) p.catch(function () {});
               } else {
@@ -5052,7 +5063,7 @@
               }
             });
           },
-          { threshold: 0.25 },
+          { threshold: 0.25, rootMargin: "200px 0px" },
         );
         vids.forEach(function (v) {
           v.pause();
