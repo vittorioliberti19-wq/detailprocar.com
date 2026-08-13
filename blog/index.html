@@ -100,17 +100,15 @@
       article table { width: 100%; border-collapse: collapse; margin: 1.6rem 0;
                        font-size: .93rem; display: block; overflow-x: auto;
                        -webkit-overflow-scrolling: touch;
-                       /* fade on the right edge hints the table scrolls sideways */
+                       /* fade al borde derecho: avisa que la tabla se desliza */
                        mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent);
                        -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 28px), transparent); }
-      /* drop the fade once the whole table fits, and for anyone who can't see it */
       @media (min-width: 700px) {
         article table { mask-image: none; -webkit-mask-image: none; }
       }
       article th, article td { border: 1px solid var(--border); padding: .7rem .9rem;
                                 text-align: left; color: var(--muted); }
-      /* keep "desde $40" on one line so the amount never splits */
-      article td strong, article td:only-child { white-space: nowrap; }
+      article td strong { white-space: nowrap; }
       @media (max-width: 700px) {
         article th, article td { padding: .5rem .55rem; font-size: .86rem; }
       }
