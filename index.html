@@ -97,7 +97,7 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "AutomotiveBusiness",
+        "@type": ["AutoWash", "AutomotiveBusiness"],
         "@id": "https://detailprocar.com/#business",
         "name": "Detail Pro Car Wash",
         "alternateName": "Detail Pro",
@@ -122,6 +122,13 @@
           "longitude": -71.6128
         },
         "hasMap": "https://maps.google.com/?cid=12302619773748867766",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+584146733148",
+          "contactType": "customer service",
+          "areaServed": "VE",
+          "availableLanguage": "es"
+        },
         "knowsAbout": [
           "Autolavado profesional",
           "Ceramic coating",
@@ -137,6 +144,7 @@
           "Lavado a domicilio"
         ],
         "slogan": "El estándar profesional del detallado automotriz en Maracaibo",
+        "dateModified": "2026-08-12",
         "openingHoursSpecification": [
           {
             "@type": "OpeningHoursSpecification",
@@ -537,14 +545,7 @@
             "description": "Aplicación profesional de ceramic coating con garantía de 1 año o 3 años para carros y camionetas. Incluye descontaminación química, barra de arcilla y pulido de corrección. Protección hidrofóbica 9H contra UV, contaminantes y microrrayones.",
             "provider": { "@id": "https://detailprocar.com/#business" },
             "areaServed": { "@type": "City", "name": "Maracaibo" },
-            "url": "https://detailprocar.com/#info-ceramic",
-            "offers": {
-              "@type": "AggregateOffer",
-              "priceCurrency": "USD",
-              "lowPrice": "350",
-              "highPrice": "600",
-              "offerCount": "4"
-            }
+            "url": "https://detailprocar.com/#info-ceramic"
           },
           {
             "@type": "Service",
@@ -625,40 +626,6 @@
             "position": 3,
             "name": "Plan Corporativo",
             "item": "https://detailprocar.com/#corporate"
-          }
-        ]
-      }
-    </script>
-
-    <!-- JSON-LD HowTo — Cuidado de un carro con ceramic coating (rich snippet + AI cite) -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "@id": "https://detailprocar.com/#howto-ceramic-care",
-        "name": "Cómo mantener un carro con ceramic coating",
-        "description": "Guía rápida para conservar el brillo y las propiedades hidrofóbicas del recubrimiento cerámico aplicado por Detail Pro Car Wash en Maracaibo.",
-        "totalTime": "PT15M",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "name": "Lavá con champú pH neutro",
-            "text": "Usá champú automotor con pH neutro. Evitá detergentes domésticos y ceras tradicionales que pueden deteriorar la capa cerámica."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Técnica de dos cubetas y microfibra",
-            "text": "Usá dos cubetas (una para el champú y otra para enjuague de la microfibra) y guante de microfibra para evitar microrrayones."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Secado por contacto suave",
-            "text": "Secá con toalla de microfibra dedicada exclusivamente a secado, sin presión excesiva."
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Mantenimiento técnico semestral",
-            "text": "Cada 6 meses traé el vehículo a Detail Pro Car Wash para reactivar las propiedades hidrofóbicas y prolongar la vida útil del coating."
           }
         ]
       }
@@ -1245,11 +1212,6 @@
         height: 20px;
         min-width: 20px;
         color: var(--primary);
-      }
-
-      /* Prices hidden from the public site (shown only to corporate clients on request) */
-      .service-price {
-        display: none;
       }
 
       .service-legend {
@@ -2095,6 +2057,7 @@
 
       .footer-logo {
         height: 36px;
+        width: auto;
         margin-bottom: 20px;
       }
 
@@ -2962,6 +2925,8 @@
       <a href="#hero" aria-label="Detail Pro Car Wash - Inicio">
         <img
           src="logo.webp"
+          width="4500"
+          height="1334"
           alt="Detail Pro Car Wash"
           class="nav-logo"
           onerror="
@@ -2975,6 +2940,7 @@
         <a href="#corporate">Plan Corporativo</a>
         <a href="#reels">Proceso</a>
         <a href="#faq">FAQ</a>
+        <a href="/blog/">Blog</a>
         <a href="#procar">ProCar Sale</a>
         <a href="#contacto">Contacto</a>
         <a
@@ -3003,7 +2969,7 @@
           muted
           loop
           playsinline
-          poster="logo.png"
+          poster="logo.webp"
         ></video>
       </div>
       <div class="hero-gradient"></div>
@@ -3197,15 +3163,37 @@
           </div>
           <img
             class="ba-img ba-before"
-            src="ba-before.jpg"
+            src="ba-before.webp"
+            width="1600"
+            height="900"
             alt="Vehículo antes del detallado profesional Detail Pro"
-            onerror="this.style.display = 'none'"
+            loading="lazy"
+            decoding="async"
+            onerror="
+              if (!this.dataset.fallback) {
+                this.dataset.fallback = '1';
+                this.src = 'ba-before.jpg';
+              } else {
+                this.style.display = 'none';
+              }
+            "
           />
           <img
             class="ba-img ba-after"
-            src="ba-after.jpg"
+            src="ba-after.webp"
+            width="1600"
+            height="900"
             alt="Vehículo después del detallado profesional Detail Pro"
-            onerror="this.style.display = 'none'"
+            loading="lazy"
+            decoding="async"
+            onerror="
+              if (!this.dataset.fallback) {
+                this.dataset.fallback = '1';
+                this.src = 'ba-after.jpg';
+              } else {
+                this.style.display = 'none';
+              }
+            "
           />
           <span class="ba-label before">Antes</span>
           <span class="ba-label after">Después</span>
@@ -3302,90 +3290,49 @@
           aria-labelledby="tab-btn-lavado"
         >
           <div class="service-row">
-            <span class="service-name">Lavado Exterior · Pequeño</span
-            ><span class="service-price"><span class="currency">€</span>5</span>
+            <span class="service-name">Lavado Exterior · Pequeño</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Exterior · Mediano</span
-            ><span class="service-price"
-              ><span class="currency">€</span>10</span
-            >
+            <span class="service-name">Lavado Exterior · Mediano</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Exterior · Grande</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Lavado Exterior · Grande</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Básico · Pequeño</span
-            ><span class="service-price"
-              ><span class="currency">€</span>10</span
-            >
+            <span class="service-name">Lavado Básico · Pequeño</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Básico · Mediano</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Lavado Básico · Mediano</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Básico · Grande</span
-            ><span class="service-price"
-              ><span class="currency">€</span>20</span
-            >
+            <span class="service-name">Lavado Básico · Grande</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado con Cera · Pequeño</span
-            ><span class="service-price"
-              ><span class="currency">€</span>20</span
-            >
+            <span class="service-name">Lavado con Cera · Pequeño</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado con Cera · Mediano</span
-            ><span class="service-price"
-              ><span class="currency">€</span>25</span
-            >
+            <span class="service-name">Lavado con Cera · Mediano</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado con Cera · Grande</span
-            ><span class="service-price"
-              ><span class="currency">€</span>30</span
-            >
+            <span class="service-name">Lavado con Cera · Grande</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Cera a Domicilio · Pequeño</span
-            ><span class="service-price"
-              ><span class="currency">€</span>30</span
-            >
+            <span class="service-name">Lavado Cera a Domicilio · Pequeño</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Cera a Domicilio · Mediano</span
-            ><span class="service-price"
-              ><span class="currency">€</span>35</span
-            >
+            <span class="service-name">Lavado Cera a Domicilio · Mediano</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Cera a Domicilio · Grande</span
-            ><span class="service-price"
-              ><span class="currency">€</span>40</span
-            >
+            <span class="service-name">Lavado Cera a Domicilio · Grande</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Moto Pequeña</span
-            ><span class="service-price"><span class="currency">€</span>5</span>
+            <span class="service-name">Lavado Moto Pequeña</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado Moto Adventure / Custom</span
-            ><span class="service-price"
-              ><span class="currency">€</span>10</span
-            >
+            <span class="service-name">Lavado Moto Adventure / Custom</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Lavado de Motor</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Lavado de Motor</span>
           </div>
         </div>
 
@@ -3398,52 +3345,28 @@
           aria-labelledby="tab-btn-detallado"
         >
           <div class="service-row">
-            <span class="service-name">Hidratado de Plásticos Interiores</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Hidratado de Plásticos Interiores</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Hidratado de Plásticos Exteriores</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Hidratado de Plásticos Exteriores</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Abrillantado de Cromo Exterior</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Abrillantado de Cromo Exterior</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Descontaminado de 1 Pieza</span
-            ><span class="service-price"
-              ><span class="currency">€</span>30</span
-            >
+            <span class="service-name">Descontaminado de 1 Pieza</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Descontaminado de Vidrio · 1 pza</span
-            ><span class="service-price"
-              ><span class="currency">€</span>10</span
-            >
+            <span class="service-name">Descontaminado de Vidrio · 1 pza</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Pulido de 1 Pieza</span
-            ><span class="service-price"
-              ><span class="currency">€</span>15</span
-            >
+            <span class="service-name">Pulido de 1 Pieza</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Pulido Básico Carro (3 meses)</span
-            ><span class="service-price"
-              ><span class="currency">€</span>200</span
-            >
+            <span class="service-name">Pulido Básico Carro (3 meses)</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Pulido Básico Camioneta (3 meses)</span
-            ><span class="service-price"
-              ><span class="currency">€</span>250</span
-            >
+            <span class="service-name">Pulido Básico Camioneta (3 meses)</span>
           </div>
         </div>
 
@@ -3456,42 +3379,25 @@
           aria-labelledby="tab-btn-interior"
         >
           <div class="service-row">
-            <span class="service-name">Limpieza Interior · Pequeño</span
-            ><span class="service-price"><span class="currency">€</span>5</span>
+            <span class="service-name">Limpieza Interior · Pequeño</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Limpieza Interior · Mediano</span
-            ><span class="service-price"><span class="currency">€</span>7</span>
+            <span class="service-name">Limpieza Interior · Mediano</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Limpieza Interior · Grande</span
-            ><span class="service-price"
-              ><span class="currency">€</span>10</span
-            >
+            <span class="service-name">Limpieza Interior · Grande</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Limpieza Tapicería de Tela</span
-            ><span class="service-price"
-              ><span class="currency">€</span>35</span
-            >
+            <span class="service-name">Limpieza Tapicería de Tela</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Limpieza Tapicería de Cuero</span
-            ><span class="service-price"
-              ><span class="currency">€</span>55</span
-            >
+            <span class="service-name">Limpieza Tapicería de Cuero</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Sellado Tapicería de Cuero</span
-            ><span class="service-price"
-              ><span class="currency">€</span>55</span
-            >
+            <span class="service-name">Sellado Tapicería de Cuero</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Sellado Tapicería de Tela</span
-            ><span class="service-price"
-              ><span class="currency">€</span>35</span
-            >
+            <span class="service-name">Sellado Tapicería de Tela</span>
           </div>
         </div>
 
@@ -3504,28 +3410,16 @@
           aria-labelledby="tab-btn-coating"
         >
           <div class="service-row">
-            <span class="service-name">Cerámico Carro · 1 año</span
-            ><span class="service-price"
-              ><span class="currency">€</span>350</span
-            >
+            <span class="service-name">Cerámico Carro · 1 año</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Cerámico Carro · 3 años</span
-            ><span class="service-price"
-              ><span class="currency">€</span>500</span
-            >
+            <span class="service-name">Cerámico Carro · 3 años</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Cerámico Camioneta · 1 año</span
-            ><span class="service-price"
-              ><span class="currency">€</span>450</span
-            >
+            <span class="service-name">Cerámico Camioneta · 1 año</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Cerámico Camioneta · 3 años</span
-            ><span class="service-price"
-              ><span class="currency">€</span>600</span
-            >
+            <span class="service-name">Cerámico Camioneta · 3 años</span>
           </div>
         </div>
 
@@ -3538,19 +3432,15 @@
           aria-labelledby="tab-btn-otros"
         >
           <div class="service-row">
-            <span class="service-name">Papel Ahumado / Polarizado (mt)</span
-            ><span class="service-price"
-              ><span class="currency">€</span>30</span
-            >
+            <span class="service-name">Papel Ahumado / Polarizado (mt)</span>
           </div>
           <div class="service-row">
-            <span class="service-name">Papel Protector para Alfombra</span
-            ><span class="service-price"><span class="currency">€</span>3</span>
+            <span class="service-name">Papel Protector para Alfombra</span>
           </div>
           <div class="service-row">
             <span class="service-name"
               >Protección para Plásticos Interiores</span
-            ><span class="service-price"><span class="currency">€</span>5</span>
+            >
           </div>
         </div>
 
@@ -3617,6 +3507,8 @@
               <figure class="vehicle" data-veh="motos">
                 <img
                   src="vehicle-imgs/motos.jpg"
+                  width="1200"
+                  height="896"
                   alt="Motos"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -3626,6 +3518,8 @@
               <figure class="vehicle" data-veh="carros">
                 <img
                   src="vehicle-imgs/carros.jpg"
+                  width="1200"
+                  height="896"
                   alt="Carros"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -3635,6 +3529,8 @@
               <figure class="vehicle" data-veh="camionetas">
                 <img
                   src="vehicle-imgs/camionetas.jpg"
+                  width="1200"
+                  height="896"
                   alt="Camionetas"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -3644,6 +3540,8 @@
               <figure class="vehicle" data-veh="vans">
                 <img
                   src="vehicle-imgs/vans.jpg"
+                  width="1200"
+                  height="896"
                   alt="Vans"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -3653,6 +3551,8 @@
               <figure class="vehicle" data-veh="pickup">
                 <img
                   src="vehicle-imgs/pickup.jpg"
+                  width="1200"
+                  height="896"
                   alt="Pick-up"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -3662,6 +3562,8 @@
               <figure class="vehicle" data-veh="camionetas-xl">
                 <img
                   src="vehicle-imgs/camionetas-xl.jpg"
+                  width="1200"
+                  height="896"
                   alt="Camionetas XL"
                   loading="lazy"
                   onerror="this.style.display = 'none'"
@@ -4725,6 +4627,8 @@
           <div>
             <img
               src="logo.webp"
+              width="4500"
+              height="1334"
               alt="Detail Pro Car Wash"
               class="footer-logo"
               onerror="
@@ -4744,6 +4648,7 @@
               <li><a href="#servicios">Servicios</a></li>
               <li><a href="#corporate">Plan Corporativo</a></li>
               <li><a href="#reels">Proceso</a></li>
+              <li><a href="/blog/">Blog</a></li>
               <li><a href="#procar">ProCar Sale</a></li>
               <li><a href="#contacto">Contacto</a></li>
             </ul>
@@ -4793,6 +4698,8 @@
             >
               <img
                 src="1bite-logo.webp"
+                width="4500"
+                height="1667"
                 alt="1bite Studio"
                 onerror="
                   this.src = '1bite-logo.png';
