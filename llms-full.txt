@@ -74,7 +74,7 @@ Programa B2B exclusivo para empresas con flota vehicular propia en Maracaibo. En
 - Segmento: exclusivo para personas jurídicas (empresas / organizaciones).
 - Descuento corporativo preferencial sobre tarifa regular al público.
 - Sin duración mínima de contrato.
-- Sin obligación de consumo mínimo mensual.
+- Mínimo 10 lavados al mes para mantener el descuento; si no se alcanza, ese período se factura a tarifa regular.
 - Uso exclusivo para los vehículos de la flota registrada.
 - Cortes administrativos: días 15 y último de cada mes.
 - Facturación: una sola factura consolidada por período.
@@ -123,7 +123,7 @@ No. El Plan Corporativo está reservado exclusivamente para personas jurídicas 
 
 ### ¿Cuánto cuesta el plan corporativo?
 
-Se cobra por lavado individual realizado, con descuento corporativo preferencial sobre la tarifa regular. No hay cuota mensual fija ni consumo mínimo obligatorio. Los precios se facilitan por canal directo al contactar a la empresa.
+Se cobra por lavado individual realizado, con descuento corporativo preferencial sobre la tarifa regular. No hay cuota mensual fija; el descuento exige un mínimo de 10 lavados al mes y, si no se alcanza, ese período se factura a tarifa regular. Los precios se facilitan por canal directo al contactar a la empresa.
 
 ### ¿Hacen polarizado?
 
