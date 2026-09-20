@@ -1,14 +1,7 @@
 <!doctype html>
 <html lang="es-VE">
   <head>
-    <!-- Google Ads: Detail Pro Car Wash -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18462726344"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-18462726344', { allow_enhanced_conversions: false });
-    </script>
+    <script defer src="/assets/site-measurement.js"></script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -5077,6 +5070,7 @@
             (d.get("mensaje") ? "\nComentarios: " + d.get("mensaje") : "");
           var url =
             "https://wa.me/584146733148?text=" + encodeURIComponent(msg);
+          window.dispatchEvent(new Event("site-whatsapp-form"));
           window.open(url, "_blank", "noopener");
         });
       })();
