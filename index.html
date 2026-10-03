@@ -2913,6 +2913,40 @@
           padding-bottom: 80px;
         }
       }
+
+      /* Direct service quotes and persistent, accessible WhatsApp contact. */
+      .trust-card { min-width: 0; }
+      .trust-num { overflow-wrap: anywhere; }
+      .quote-services { scroll-margin-top: 100px; padding: 40px 0; background: var(--bg-elevated); border-block: 1px solid var(--border); }
+      .quote-services h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3vw, 2.3rem); margin-bottom: 10px; }
+      .quote-services p { color: var(--muted-strong); margin-bottom: 24px; }
+      .quote-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .quote-card { display: flex; flex-direction: column; gap: 8px; padding: 22px; border: 1px solid var(--border-strong); border-radius: 16px; background: var(--bg-base); color: var(--foreground); min-height: 112px; }
+      .quote-card strong { font-family: var(--font-display); font-size: 1.2rem; }
+      .quote-card span { color: #72e69d; font-size: .9rem; font-weight: 600; }
+      .quote-card:hover { border-color: #72e69d; background: #102019; }
+      .quote-card:focus-visible, .service-quote:focus-visible { outline: 3px solid #72e69d; outline-offset: 4px; }
+      .service-quote { flex-shrink: 0; padding: 10px 14px; min-height: 44px; display: inline-flex; align-items: center; border: 1px solid var(--border-strong); border-radius: 999px; color: #72e69d; font-weight: 600; font-size: .85rem; }
+      .service-quote:hover { background: #102019; border-color: #72e69d; }
+      .wa-fab { width: auto; padding: 0 20px; gap: 10px; border-radius: 999px; font-weight: 700; }
+      .mobile-cta-main { background: #72e69d; color: #06140b; letter-spacing: 0; text-transform: none; }
+      @media (max-width: 860px) {
+        .trust-strip { grid-template-columns: minmax(0, 1fr); }
+        .trust-num { font-size: clamp(1.3rem, 6vw, 2.2rem); }
+        .quote-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .quote-card { padding: 16px; }
+        .quote-card strong { font-size: 1.05rem; }
+        .wa-fab { display: none; }
+        .mobile-cta { transform: none; padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
+        .mobile-cta .mobile-cta-main { padding: 14px 12px; font-size: .9rem; }
+        .mobile-cta .mobile-cta-secondary { padding: 14px 12px; font-size: .8rem; }
+        body #measurement-banner { bottom: calc(96px + env(safe-area-inset-bottom)); }
+        body #measurement-reopen { bottom: calc(96px + env(safe-area-inset-bottom)); }
+        body { padding-bottom: calc(90px + env(safe-area-inset-bottom)); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .quote-card, .service-quote, .mobile-cta { transition: none; }
+      }
     </style>
   </head>
   <body>
@@ -2949,7 +2983,7 @@
           class="nav-cta"
           target="_blank"
           rel="noopener"
-          >Agendar</a
+          >Cotizar por WhatsApp</a
         >
       </div>
       <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
@@ -3000,7 +3034,7 @@
             target="_blank"
             rel="noopener"
           >
-            Agendar por WhatsApp
+            Cotiza por WhatsApp
             <svg
               width="18"
               height="18"
@@ -3040,6 +3074,19 @@
     <!-- ============================================================
          REELS
          ============================================================ -->
+    <section class="quote-services" id="cotizar" aria-labelledby="quote-heading">
+      <div class="container">
+        <h2 id="quote-heading">¿Qué quieres hacerle a tu vehículo?</h2>
+        <p>Elige el servicio y consulta por WhatsApp. Indícanos el modelo y año para cotizar.<br>CC Terraza 77, sótano · Maracaibo · Lunes a sábado, 8:00 AM a 6:00 PM.</p>
+        <div class="quote-grid"><a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20PPF%20para%20mi%20veh%C3%ADculo.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar PPF por WhatsApp"><strong>PPF</strong><span>Cotizar por WhatsApp →</span></a>
+<a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20papel%20ahumado%20para%20mi%20veh%C3%ADculo.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Papel ahumado / 3M por WhatsApp"><strong>Papel ahumado / 3M</strong><span>Cotizar por WhatsApp →</span></a>
+<a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20ceramic%20coating%20para%20mi%20veh%C3%ADculo.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Ceramic coating por WhatsApp"><strong>Ceramic coating</strong><span>Cotizar por WhatsApp →</span></a>
+<a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20un%20lavado%20para%20mi%20veh%C3%ADculo.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado de vehículos por WhatsApp"><strong>Lavado de vehículos</strong><span>Cotizar por WhatsApp →</span></a>
+<a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20pulitura%20de%20faros.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Pulitura de faros por WhatsApp"><strong>Pulitura de faros</strong><span>Cotizar por WhatsApp →</span></a>
+<a class="quote-card" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20detallado%20e%20interiores%20para%20mi%20veh%C3%ADculo.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Detallado e interiores por WhatsApp"><strong>Detallado e interiores</strong><span>Cotizar por WhatsApp →</span></a></div>
+      </div>
+    </section>
+
     <section class="reels" id="reels">
       <div class="section-num">01</div>
       <div class="container">
@@ -3292,48 +3339,63 @@
         >
           <div class="service-row">
             <span class="service-name">Lavado Exterior · Pequeño</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Exterior%20%C2%B7%20Peque%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Exterior · Pequeño por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Exterior · Mediano</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Exterior%20%C2%B7%20Mediano.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Exterior · Mediano por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Exterior · Grande</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Exterior%20%C2%B7%20Grande.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Exterior · Grande por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Básico · Pequeño</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20B%C3%A1sico%20%C2%B7%20Peque%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Básico · Pequeño por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Básico · Mediano</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20B%C3%A1sico%20%C2%B7%20Mediano.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Básico · Mediano por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Básico · Grande</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20B%C3%A1sico%20%C2%B7%20Grande.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Básico · Grande por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado con Cera · Pequeño</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20con%20Cera%20%C2%B7%20Peque%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado con Cera · Pequeño por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado con Cera · Mediano</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20con%20Cera%20%C2%B7%20Mediano.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado con Cera · Mediano por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado con Cera · Grande</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20con%20Cera%20%C2%B7%20Grande.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado con Cera · Grande por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Cera a Domicilio · Pequeño</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Cera%20a%20Domicilio%20%C2%B7%20Peque%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Cera a Domicilio · Pequeño por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Cera a Domicilio · Mediano</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Cera%20a%20Domicilio%20%C2%B7%20Mediano.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Cera a Domicilio · Mediano por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Cera a Domicilio · Grande</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Cera%20a%20Domicilio%20%C2%B7%20Grande.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Cera a Domicilio · Grande por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Moto Pequeña</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Moto%20Peque%C3%B1a.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Moto Pequeña por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado Moto Adventure / Custom</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20Moto%20Adventure%20%2F%20Custom.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado Moto Adventure / Custom por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Lavado de Motor</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Lavado%20de%20Motor.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Lavado de Motor por WhatsApp">Cotizar</a>
           </div>
         </div>
 
@@ -3347,27 +3409,35 @@
         >
           <div class="service-row">
             <span class="service-name">Hidratado de Plásticos Interiores</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Hidratado%20de%20Pl%C3%A1sticos%20Interiores.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Hidratado de Plásticos Interiores por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Hidratado de Plásticos Exteriores</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Hidratado%20de%20Pl%C3%A1sticos%20Exteriores.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Hidratado de Plásticos Exteriores por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Abrillantado de Cromo Exterior</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Abrillantado%20de%20Cromo%20Exterior.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Abrillantado de Cromo Exterior por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Descontaminado de 1 Pieza</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Descontaminado%20de%201%20Pieza.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Descontaminado de 1 Pieza por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Descontaminado de Vidrio · 1 pza</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Descontaminado%20de%20Vidrio%20%C2%B7%201%20pza.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Descontaminado de Vidrio · 1 pza por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Pulido de 1 Pieza</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Pulido%20de%201%20Pieza.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Pulido de 1 Pieza por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Pulido Básico Carro (3 meses)</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Pulido%20B%C3%A1sico%20Carro%20%283%20meses%29.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Pulido Básico Carro (3 meses) por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Pulido Básico Camioneta (3 meses)</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Pulido%20B%C3%A1sico%20Camioneta%20%283%20meses%29.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Pulido Básico Camioneta (3 meses) por WhatsApp">Cotizar</a>
           </div>
         </div>
 
@@ -3381,24 +3451,31 @@
         >
           <div class="service-row">
             <span class="service-name">Limpieza Interior · Pequeño</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Limpieza%20Interior%20%C2%B7%20Peque%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Limpieza Interior · Pequeño por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Limpieza Interior · Mediano</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Limpieza%20Interior%20%C2%B7%20Mediano.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Limpieza Interior · Mediano por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Limpieza Interior · Grande</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Limpieza%20Interior%20%C2%B7%20Grande.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Limpieza Interior · Grande por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Limpieza Tapicería de Tela</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Limpieza%20Tapicer%C3%ADa%20de%20Tela.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Limpieza Tapicería de Tela por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Limpieza Tapicería de Cuero</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Limpieza%20Tapicer%C3%ADa%20de%20Cuero.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Limpieza Tapicería de Cuero por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Sellado Tapicería de Cuero</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Sellado%20Tapicer%C3%ADa%20de%20Cuero.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Sellado Tapicería de Cuero por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Sellado Tapicería de Tela</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Sellado%20Tapicer%C3%ADa%20de%20Tela.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Sellado Tapicería de Tela por WhatsApp">Cotizar</a>
           </div>
         </div>
 
@@ -3412,15 +3489,19 @@
         >
           <div class="service-row">
             <span class="service-name">Cerámico Carro · 1 año</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Cer%C3%A1mico%20Carro%20%C2%B7%201%20a%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Cerámico Carro · 1 año por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Cerámico Carro · 3 años</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Cer%C3%A1mico%20Carro%20%C2%B7%203%20a%C3%B1os.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Cerámico Carro · 3 años por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Cerámico Camioneta · 1 año</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Cer%C3%A1mico%20Camioneta%20%C2%B7%201%20a%C3%B1o.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Cerámico Camioneta · 1 año por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Cerámico Camioneta · 3 años</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Cer%C3%A1mico%20Camioneta%20%C2%B7%203%20a%C3%B1os.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Cerámico Camioneta · 3 años por WhatsApp">Cotizar</a>
           </div>
         </div>
 
@@ -3434,9 +3515,11 @@
         >
           <div class="service-row">
             <span class="service-name">Papel Ahumado / Polarizado (mt)</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Papel%20Ahumado%20%2F%20Polarizado%20%28mt%29.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Papel Ahumado / Polarizado (mt) por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name">Papel Protector para Alfombra</span>
+          <a class="service-quote" href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20cotizar%20Papel%20Protector%20para%20Alfombra.%20Mi%20veh%C3%ADculo%20es%3A%20" target="_blank" rel="noopener" aria-label="Cotizar Papel Protector para Alfombra por WhatsApp">Cotizar</a>
           </div>
           <div class="service-row">
             <span class="service-name"
@@ -4789,6 +4872,7 @@
           d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"
         />
       </svg>
+      <span>Cotiza por WhatsApp</span>
     </a>
 
     <script>
@@ -5118,33 +5202,19 @@
     </script>
 
     <!-- Mobile sticky bottom CTA -->
-    <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <div class="mobile-cta visible" id="mobileCta">
       <a
         href="https://wa.me/584146733148?text=Hola%2C%20estaba%20revisando%20la%20web%20de%20Detail%20Pro%20y%20estoy%20interesado%20en%20conocer%20m%C3%A1s%20sobre%20sus%20servicios."
         target="_blank"
         rel="noopener"
         class="btn-primary mobile-cta-main"
-        >Agendar cita</a
+        >Cotiza por WhatsApp</a
       >
-      <a href="#servicios" class="btn-secondary mobile-cta-secondary"
+      <a href="#cotizar" class="btn-secondary mobile-cta-secondary"
         >Ver servicios</a
       >
     </div>
 
-    <script>
-      // MOBILE STICKY CTA
-      (function () {
-        var cta = document.getElementById("mobileCta");
-        if (!cta) return;
-        var hero = document.getElementById("hero");
-        var onScroll = function () {
-          var threshold = hero ? hero.offsetHeight : window.innerHeight;
-          if (window.scrollY > threshold) cta.classList.add("visible");
-          else cta.classList.remove("visible");
-        };
-        window.addEventListener("scroll", onScroll, { passive: true });
-        onScroll();
-      })();
-    </script>
+
   </body>
 </html>
