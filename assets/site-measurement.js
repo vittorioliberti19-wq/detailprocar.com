@@ -56,7 +56,9 @@ window.siteMeasurementConfig = {"name": "Detail Pro", "gaId": "G-XH7LD12QNP", "a
     if (!window.fbq) {
       var fbq = function () { fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments); };
       fbq.queue = []; fbq.loaded = true; fbq.version = '2.0';
+      fbq.push = fbq;
       window.fbq = fbq;
+      if (!window._fbq) window._fbq = fbq;
     }
     if (!metaInitialized) {
       metaInitialized = true;
